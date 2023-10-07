@@ -96,7 +96,7 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   const int MAX_LED = 4;
   int index_led = 0;
-  int led_buffer[4] = {1, 2, 3, 4};
+  int led_buffer[4] = {1, 5, 0, 8};
   void update7SEG(int index){
 	  display7SEG(led_buffer[index]);
       switch (index){
