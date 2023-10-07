@@ -94,44 +94,42 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-//  HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, SET);
-//  HAL_GPIO_WritePin(SEG0_GPIO_Port, SEG0_Pin, SET);
-//  HAL_GPIO_WritePin(SEG1_GPIO_Port, SEG1_Pin, SET);
-//  HAL_GPIO_WritePin(SEG2_GPIO_Port, SEG2_Pin, SET);
-//  HAL_GPIO_WritePin(SEG3_GPIO_Port, SEG3_Pin, SET);
-//  HAL_GPIO_WritePin(SEG4_GPIO_Port, SEG4_Pin, SET);
-//  HAL_GPIO_WritePin(SEG5_GPIO_Port, SEG5_Pin, SET);
-//  HAL_GPIO_WritePin(SEG6_GPIO_Port, SEG6_Pin, SET);
   const int MAX_LED = 4;
   int index_led = 0;
   int led_buffer[4] = {1, 2, 3, 4};
-
   void update7SEG(int index){
+	  display7SEG(led_buffer[index]);
       switch (index){
           case 0:
-              //
-        	  display7SEG(led_buffer[index]);
-        	  index = 1;
+        	  HAL_GPIO_WritePin(GPIOA, EN0_Pin, RESET);
+        	  HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
               break;
           case 1:
-              //
-        	  display7SEG(led_buffer[index]);
-        	  index = 2;
+        	  HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN1_Pin, RESET);
+        	  HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
               break;
           case 2:
-        	  display7SEG(led_buffer[index]);
-        	  index = 3;
+        	  HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN2_Pin, RESET);
+        	  HAL_GPIO_WritePin(GPIOA, EN3_Pin, SET);
               break;
           case 3:
-        	  display7SEG(led_buffer[index]);
-        	  index = 0;
+        	  HAL_GPIO_WritePin(GPIOA, EN0_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN1_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN2_Pin, SET);
+        	  HAL_GPIO_WritePin(GPIOA, EN3_Pin, RESET);
               break;
           default:
               break;
       }
   }
+
   setTimer1(50); setTimer2(100);
-  int index = 0;
   while (1)
   {
 	  if (timer1_flag == 1){
