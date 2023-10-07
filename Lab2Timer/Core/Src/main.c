@@ -129,11 +129,11 @@ int main(void)
       }
   }
 
-  setTimer1(50); setTimer2(100);
+  setTimer1(25); setTimer2(100);
   while (1)
   {
 	  if (timer1_flag == 1){
-		  setTimer1(50);
+		  setTimer1(25);
 		  update7SEG(index_led++);
 		  if (index_led == MAX_LED) index_led = 0;
 	  }

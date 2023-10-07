@@ -240,8 +240,8 @@ int main(void)
  800027a:	cb0f      	ldmia	r3, {r0, r1, r2, r3}
  800027c:	e884 000f 	stmia.w	r4, {r0, r1, r2, r3}
 
-  setTimer1(50); setTimer2(100);
- 8000280:	2032      	movs	r0, #50	; 0x32
+  setTimer1(25); setTimer2(100);
+ 8000280:	2019      	movs	r0, #25
  8000282:	f000 faaf 	bl	80007e4 <setTimer1>
  8000286:	2064      	movs	r0, #100	; 0x64
  8000288:	f000 fac0 	bl	800080c <setTimer2>
@@ -252,8 +252,8 @@ int main(void)
  800028e:	681b      	ldr	r3, [r3, #0]
  8000290:	2b01      	cmp	r3, #1
  8000292:	d110      	bne.n	80002b6 <main+0x6a>
-		  setTimer1(50);
- 8000294:	2032      	movs	r0, #50	; 0x32
+		  setTimer1(25);
+ 8000294:	2019      	movs	r0, #25
  8000296:	f000 faa5 	bl	80007e4 <setTimer1>
 		  update7SEG(index_led++);
  800029a:	69fb      	ldr	r3, [r7, #28]
