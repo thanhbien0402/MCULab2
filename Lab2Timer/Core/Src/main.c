@@ -141,7 +141,8 @@ int main(void)
   {
 	  if (timer1_flag == 1){
 		  setTimer1(10);
-		  update7SEG(index_led++);
+		  update7SEG(index_led);
+		  index_led++;
 		  if (index_led == MAX_LED) index_led = 0;
 	  }
 

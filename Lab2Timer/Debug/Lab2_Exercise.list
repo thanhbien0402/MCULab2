@@ -37,13 +37,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  16 .debug_macro  000162b2  00000000  00000000  0002af20  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .debug_line   00009500  00000000  00000000  000411d2  2**0
+ 17 .debug_line   00009503  00000000  00000000  000411d2  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 18 .debug_str    00081f7d  00000000  00000000  0004a6d2  2**0
+ 18 .debug_str    00081f7d  00000000  00000000  0004a6d5  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 19 .comment      00000053  00000000  00000000  000cc64f  2**0
+ 19 .comment      00000053  00000000  00000000  000cc652  2**0
                   CONTENTS, READONLY
- 20 .debug_frame  000026c0  00000000  00000000  000cc6a4  2**2
+ 20 .debug_frame  000026c0  00000000  00000000  000cc6a8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -265,14 +265,15 @@ int main(void)
 		  setTimer1(10);
  80002a2:	200a      	movs	r0, #10
  80002a4:	f000 faf8 	bl	8000898 <setTimer1>
-		  update7SEG(index_led++);
- 80002a8:	6a7b      	ldr	r3, [r7, #36]	; 0x24
- 80002aa:	1c5a      	adds	r2, r3, #1
- 80002ac:	627a      	str	r2, [r7, #36]	; 0x24
- 80002ae:	463a      	mov	r2, r7
- 80002b0:	4694      	mov	ip, r2
- 80002b2:	4618      	mov	r0, r3
- 80002b4:	f7ff ff4a 	bl	800014c <update7SEG.5972>
+		  update7SEG(index_led);
+ 80002a8:	463b      	mov	r3, r7
+ 80002aa:	469c      	mov	ip, r3
+ 80002ac:	6a78      	ldr	r0, [r7, #36]	; 0x24
+ 80002ae:	f7ff ff4d 	bl	800014c <update7SEG.5972>
+		  index_led++;
+ 80002b2:	6a7b      	ldr	r3, [r7, #36]	; 0x24
+ 80002b4:	3301      	adds	r3, #1
+ 80002b6:	627b      	str	r3, [r7, #36]	; 0x24
 		  if (index_led == MAX_LED) index_led = 0;
  80002b8:	6a7a      	ldr	r2, [r7, #36]	; 0x24
  80002ba:	69fb      	ldr	r3, [r7, #28]
