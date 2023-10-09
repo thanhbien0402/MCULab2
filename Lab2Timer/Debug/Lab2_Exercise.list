@@ -267,14 +267,14 @@ int main(void)
   	setRow(matrix_buffer[index]);
   }
 
-  setTimer1(10); setTimer2(100); setTimer3(100); setTimer4(11);
+  setTimer1(10); setTimer2(100); setTimer3(100); setTimer4(1);
  80002a4:	200a      	movs	r0, #10
  80002a6:	f000 fc89 	bl	8000bbc <setTimer1>
  80002aa:	2064      	movs	r0, #100	; 0x64
  80002ac:	f000 fc9a 	bl	8000be4 <setTimer2>
  80002b0:	2064      	movs	r0, #100	; 0x64
  80002b2:	f000 fcab 	bl	8000c0c <setTimer3>
- 80002b6:	200b      	movs	r0, #11
+ 80002b6:	2001      	movs	r0, #1
  80002b8:	f000 fcbc 	bl	8000c34 <setTimer4>
   while (1)
   {
@@ -375,8 +375,8 @@ int main(void)
  800034c:	681b      	ldr	r3, [r3, #0]
  800034e:	2b01      	cmp	r3, #1
  8000350:	d1b4      	bne.n	80002bc <main+0x70>
-		  setTimer4(11);
- 8000352:	200b      	movs	r0, #11
+		  setTimer4(1);
+ 8000352:	2001      	movs	r0, #1
  8000354:	f000 fc6e 	bl	8000c34 <setTimer4>
 		  updateLEDMatrix(index_led_matrix);
  8000358:	463b      	mov	r3, r7
